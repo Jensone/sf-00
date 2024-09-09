@@ -132,7 +132,7 @@ class HomeController extends AbstractController
     public function index(PersonRepository $pr): Response // Ceci est le contrôleur qui va être appelé lorsque l'utilisateur accède à la page '/'
     {
         $name = 'Alex'; // À l'aide de la classe Request de HttpFoundation, on peut récupérer les paramètres de la route.
-        return $this->render('setting/index.html.twig', [ // La méthode render() de la classe AbstractController permet de renvoyer un template avec des données.
+        return $this->render('home/index.html.twig', [ // La méthode render() de la classe AbstractController permet de renvoyer un template avec des données.
             'name' => $name ?? 'Nobody', // Si le paramètre n'est pas renseigné, on lui donne un nom par défaut.
             'people' => $pr->findAll(), // On récupère tous les personnages dans la base de données.
         ]);
@@ -143,7 +143,7 @@ class HomeController extends AbstractController
 2. Bouclez sur les données de la base de données pour afficher les noms et prénoms.
 
 ```
-# src/templates/setting/index.html.twig
+# src/templates/home/index.html.twig
 {% extends 'base.html.twig' %}
 //...
 {% block body %}
